@@ -1,0 +1,87 @@
+/* 数据工具模块样式：统一 dt- 前缀，深色配色，复用全局 CSS 变量 */
+
+.dt-panel { display: flex; flex-direction: column; gap: 4px; color: var(--text); font-size: 12px; }
+.dt-title-action { margin-left: auto; }
+
+/* ---------- 通用确认卡 ---------- */
+.dt-confirm { margin: 0 0 12px; padding: 12px; border: 1px solid var(--border-strong); border-radius: 9px; background: var(--surface-2); }
+.dt-confirm.danger { border-color: #583236; background: #241a1c; }
+.dt-confirm-msg { margin: 0 0 8px; color: var(--text); line-height: 1.6; }
+.dt-confirm-detail { margin-bottom: 10px; color: var(--text-2); font-size: 11px; line-height: 1.6; }
+.dt-confirm-actions { display: flex; justify-content: flex-end; gap: 8px; }
+
+/* ---------- 遮罩 / 只读预览层 ---------- */
+.dt-overlay { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(0, 0, 0, .62); }
+.dt-dialog { width: min(560px, 92vw); max-height: 82vh; display: flex; flex-direction: column; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow-lg); }
+.dt-dialog-head, .dt-dialog-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.dt-dialog-foot { border-bottom: none; border-top: 1px solid var(--border); justify-content: flex-end; }
+.dt-dialog-head h4 { margin: 0; font-size: 13px; color: var(--text); }
+.dt-dialog-body { padding: 14px 16px; overflow: auto; }
+.dt-preview-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 10px; color: var(--text-2); font-size: 11px; }
+.dt-preview-meta span { padding: 3px 8px; border-radius: 6px; background: var(--surface-3); }
+.dt-preview-hint { margin: 0 0 10px; color: var(--text-3); font-size: 11px; }
+.dt-thumb-list { margin: 0; padding: 0; list-style: none; max-height: 320px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; }
+.dt-thumb-list li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 11px; }
+.dt-thumb-list li:last-child { border-bottom: none; }
+.dt-thumb-name { flex: 1; min-width: 0; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dt-thumb-type { color: var(--primary); }
+.dt-thumb-pos { color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+/* ---------- 版本记录 ---------- */
+.dt-groups { display: flex; flex-direction: column; gap: 12px; }
+.dt-group-date { margin-bottom: 6px; color: var(--text-3); font-size: 11px; font-weight: 600; letter-spacing: .3px; }
+.dt-version-list { display: flex; flex-direction: column; gap: 6px; }
+.dt-version-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); }
+.dt-version-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.dt-version-time { color: var(--text-3); font-size: 10px; font-variant-numeric: tabular-nums; }
+.dt-version-label { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dt-version-meta { color: var(--text-2); font-size: 11px; white-space: nowrap; }
+.dt-version-actions { display: flex; gap: 6px; }
+
+/* ---------- 诊断 ---------- */
+.dt-diag-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.dt-stat { flex: 1 1 90px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); }
+.dt-stat-label { display: block; margin-bottom: 4px; color: var(--text-3); font-size: 10px; }
+.dt-stat-value { color: var(--text); font-size: 12px; font-variant-numeric: tabular-nums; }
+.dt-diag-note { margin: 0 0 6px; color: var(--text-3); font-size: 11px; line-height: 1.6; }
+.dt-rules { margin-bottom: 12px; }
+.dt-rules .check-row { padding: 3px 0; }
+.dt-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.dt-event-list { display: flex; flex-direction: column; gap: 4px; }
+.dt-event-row { display: flex; align-items: baseline; gap: 8px; padding: 6px 8px; border-radius: 6px; background: var(--surface-2); font-size: 11px; }
+.dt-event-kind { flex: 0 0 auto; padding: 1px 6px; border-radius: 4px; background: var(--primary-soft); color: var(--primary); }
+.dt-event-time { flex: 0 0 auto; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.dt-event-msg { flex: 1; min-width: 0; color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dt-export-preview { display: flex; flex-direction: column; gap: 8px; }
+.dt-export-stats { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--text-2); font-size: 11px; }
+.dt-file-list { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+.dt-file-list-title { margin-bottom: 5px; color: var(--text-3); font-size: 10px; }
+.dt-file-list ul { margin: 0; padding-left: 16px; color: var(--text-2); font-size: 11px; line-height: 1.7; }
+
+/* ---------- 容量 ---------- */
+.dt-meter { max-width: 360px; }
+.dt-meter-click { display: block; width: 100%; text-align: left; cursor: pointer; }
+.dt-meter-head { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; color: var(--text-2); }
+.dt-meter-pct { margin-left: auto; color: var(--text); font-variant-numeric: tabular-nums; }
+.dt-meter-track { height: 8px; border-radius: 5px; background: var(--surface-3); overflow: hidden; }
+.dt-meter-fill { height: 100%; border-radius: 5px; transition: width .3s ease; }
+.dt-meter-line { margin-top: 7px; color: var(--text-3); font-size: 11px; }
+.dt-meter-note { margin-top: 8px; }
+.dt-meter-field { margin-top: 12px; }
+.dt-compact { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-2); }
+.dt-compact-track { width: 56px; height: 5px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.dt-compact-fill { height: 100%; border-radius: 4px; }
+.dt-meter-fill.ok, .dt-compact-fill.ok { background: var(--ok); }
+.dt-meter-fill.warn, .dt-compact-fill.warn { background: var(--warn); }
+.dt-meter-fill.danger, .dt-compact-fill.danger { background: var(--danger); }
+
+/* ---------- 手动保存下拉 ---------- */
+.dt-dropdown { min-width: 210px; padding: 6px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow-md); }
+.dt-dropdown-list { display: flex; flex-direction: column; gap: 2px; }
+.dt-dropdown-item { display: flex; align-items: center; gap: 9px; width: 100%; padding: 9px 10px; border-radius: 7px; color: var(--text); font-size: 12px; text-align: left; }
+.dt-dropdown-item:hover { background: var(--surface-3); }
+.dt-dropdown-item small { margin-left: auto; color: var(--text-3); font-size: 10px; }
+.dt-dropdown-confirm { padding: 10px; }
+.dt-dropdown-confirm-title { margin-bottom: 6px; color: var(--text); font-size: 12px; font-weight: 600; }
+.dt-dropdown-confirm-msg { margin: 0 0 12px; color: var(--text-2); font-size: 11px; line-height: 1.6; }
+.dt-dropdown-confirm-actions { display: flex; justify-content: flex-end; gap: 8px; }

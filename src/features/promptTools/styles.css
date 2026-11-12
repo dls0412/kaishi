@@ -1,0 +1,132 @@
+/* 提示词工具模块样式：只定义 pt- 前缀的本模块 class，配色全部走深色变量 */
+
+.pt-dim { color: var(--text-3); font-size: 11px; }
+.pt-mono { font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace; white-space: pre-wrap; word-break: break-word; font-size: 11.5px; line-height: 1.55; margin: 0; color: var(--text); }
+
+/* ---- 1. 提示词放大编辑弹窗 ---- */
+.modal-mask.pt-expander-mask { background: rgba(0, 0, 0, .6); }
+
+.pt-expander {
+  width: min(1200px, 92vw);
+  height: min(72vh, 720px);
+  max-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  color: var(--text);
+  overflow: hidden;
+}
+.pt-expander-head h3 { color: var(--text); }
+.pt-expander-meta { display: flex; align-items: center; gap: 10px; }
+.dialog-body.pt-expander-body { display: flex; padding: 14px; }
+.dialog-input.pt-expander-textarea {
+  flex: 1;
+  height: auto;
+  min-height: 200px;
+  resize: none;
+  padding: 12px;
+  line-height: 1.65;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+}
+.dialog-input.pt-expander-textarea:focus { border-color: var(--primary); background: var(--surface-2); }
+.pt-expander-foot { gap: 10px; }
+.pt-expander-hint { margin-right: auto; }
+.pt-expander-resize {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  cursor: nwse-resize;
+  z-index: 2;
+}
+.pt-expander-resize:hover { color: var(--text); }
+
+/* ---- 2. 智能引用控制条 ---- */
+.pt-autolink { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 4px 0; }
+.pt-autolink-toggle { padding: 0; margin: 0; }
+
+/* ---- 3. AI 提示词优化器抽屉 ---- */
+.pt-optimizer {
+  position: fixed;
+  z-index: 310;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  color: var(--text);
+  overflow: hidden;
+}
+.pt-optimizer-head { cursor: move; user-select: none; }
+.pt-optimizer-head h3 { color: var(--text); }
+.pt-optimizer-status {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.pt-optimizer-status strong { color: var(--text); font-weight: 600; }
+
+.pt-chat { flex: 1; min-height: 0; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.pt-msg { max-width: 94%; padding: 9px 11px; border-radius: 10px; font-size: 12px; line-height: 1.65; }
+.pt-msg-sys { align-self: center; max-width: 100%; padding: 5px 12px; border-radius: 20px; font-size: 11px; color: var(--text-3); background: var(--surface-2); }
+.pt-msg-user { align-self: flex-end; color: var(--text); background: var(--primary-soft); border: 1px solid var(--border); }
+.pt-msg-bot { align-self: flex-start; width: 100%; max-width: 100%; padding: 10px; background: var(--surface-2); border: 1px solid var(--border); }
+
+.pt-result { display: flex; flex-direction: column; gap: 8px; }
+.pt-source { font-size: 11px; font-weight: 600; padding: 6px 9px; border-radius: 6px; }
+.pt-source-tpl { color: var(--warn); background: rgba(224, 178, 95, .12); border: 1px solid rgba(224, 178, 95, .32); }
+.pt-source-model { color: var(--ok); background: rgba(99, 201, 154, .12); border: 1px solid rgba(99, 201, 154, .3); }
+.pt-result-sec { padding-top: 6px; border-top: 1px dashed var(--border); }
+.pt-result-sec h4 { margin: 0 0 4px; font-size: 11px; font-weight: 600; color: var(--text-2); }
+.pt-result-sec pre { color: var(--text); }
+.pt-result-sec ul { margin: 0; padding-left: 16px; }
+.pt-result-sec li { font-size: 11.5px; line-height: 1.6; color: var(--text); margin-bottom: 2px; }
+.pt-error { font-size: 11px; line-height: 1.6; color: var(--danger); background: rgba(240, 113, 113, .1); border: 1px solid rgba(240, 113, 113, .3); border-radius: 6px; padding: 6px 9px; }
+
+.pt-optimizer-composer { flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; background: var(--surface-2); border-top: 1px solid var(--border); }
+.pt-modes { display: flex; flex-wrap: wrap; gap: 5px; }
+.pt-optimizer .mini-btn.pt-mode.active { background: var(--primary); color: #16161a; border-color: var(--primary); font-weight: 600; }
+.dialog-input.pt-composer-input { height: 32px; font-size: 12px; }
+.pt-composer-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.pt-optimizer-resize-left { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; cursor: ew-resize; z-index: 3; }
+.pt-optimizer-resize-corner { position: absolute; right: 1px; bottom: 1px; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-3); cursor: nwse-resize; z-index: 3; }
+.pt-optimizer-resize-corner:hover { color: var(--text); }
+
+/* ---- 4. 提示词模板目录 ---- */
+.pt-templates { display: flex; flex-direction: column; gap: 12px; }
+.pt-templates-head { display: flex; align-items: baseline; gap: 10px; }
+.pt-templates-head h3 { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 14px; color: var(--text); }
+.pt-templates-list { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; }
+.pt-tpl-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+.pt-tpl-item.open { border-color: var(--border-strong); }
+.pt-tpl-row { display: flex; align-items: center; gap: 8px; }
+.pt-tpl-main { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; text-align: left; color: var(--text); }
+.pt-tpl-main:hover .pt-tpl-label { color: var(--primary); }
+.pt-tpl-label { font-weight: 600; white-space: nowrap; }
+.pt-tpl-summary { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pt-tpl-abstract { margin-top: 4px; padding-left: 19px; font-size: 11px; line-height: 1.5; }
+.pt-tpl-full { margin-top: 8px; padding: 9px; max-height: 200px; overflow: auto; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; }
+
+.pt-templates-prefs { border-top: 1px solid var(--border); padding-top: 10px; }
+.pt-templates-prefs h4 { margin: 0 0 4px; font-size: 12px; color: var(--text-2); }
+.pt-tpl-contract strong { color: var(--warn); font-size: 11px; }
+.pt-tpl-contract p { margin: 4px 0 6px; }
+.pt-tpl-contract pre { color: var(--text-2); }

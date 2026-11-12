@@ -1,0 +1,55 @@
+/* 工作台设置：左侧分类导航 + 右侧内容，深色主题 */
+/* 用 .dialog.wb-dialog 提高特异性：全局 .dialog 是 560px，会盖掉单类名规则 */
+.dialog.wb-dialog {
+  width: min(1180px, calc(100vw - 32px));
+  height: min(820px, calc(100vh - 48px));
+  max-height: calc(100vh - 48px);
+}
+.wb-dialog .dialog-head { gap: 12px; }
+.wb-dialog .dialog-head h3 { color: var(--text); white-space: nowrap; }
+.wb-head-stats { display: flex; align-items: center; gap: 10px; margin-left: auto; font-size: 10.5px; color: var(--text-3); }
+.wb-head-stats em { font-style: normal; padding: 2px 7px; border-radius: 5px; background: #282830; }
+.wb-head-stats em.ok { color: var(--ok); }
+.wb-head-stats em.warn { color: var(--warn); }
+
+.wb-body { flex: 1; min-height: 0; display: flex; }
+.wb-nav { flex: 0 0 218px; display: flex; flex-direction: column; gap: 4px; padding: 12px 10px; overflow-y: auto; background: #191920; border-right: 1px solid var(--border); }
+.wb-nav-search { height: 30px; margin-bottom: 8px; font-size: 11px; }
+.wb-nav-group { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.wb-nav-label { padding: 6px 8px 3px; color: var(--text-3); font-size: 10px; letter-spacing: .5px; }
+.wb-nav-group button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 7px 9px; border-radius: 6px; color: var(--text-2); font-size: 11.5px; text-align: left; }
+.wb-nav-group button:hover { background: #26262e; color: var(--text); }
+.wb-nav-group button.active { background: #30303a; color: var(--text); font-weight: 600; border-left: 2px solid #8a8a94; }
+.wb-nav-group button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wb-nav-foot { margin-top: auto; padding: 10px; border-radius: 7px; background: #22222a; border: 1px solid var(--border); }
+.wb-nav-foot strong { display: block; margin-bottom: 5px; font-size: 11px; color: var(--warn); }
+.wb-nav-foot p { margin: 0; font-size: 10px; line-height: 1.6; color: var(--text-3); }
+
+.wb-content { flex: 1; min-width: 0; overflow-y: auto; padding: 16px 20px 28px; }
+.wb-content-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.wb-content-head h4 { margin: 0; font-size: 14px; color: var(--text); }
+.wb-content-head p { margin: 4px 0 0; font-size: 11px; color: var(--text-3); }
+.wb-content-head em { font-style: normal; font-size: 10px; color: var(--text-3); white-space: nowrap; }
+.wb-panel { display: flex; flex-direction: column; gap: 12px; max-width: 780px; }
+.wb-panel-head h4 { margin: 0; font-size: 13px; color: var(--text); }
+.wb-panel-head p { margin: 4px 0 0; font-size: 11px; color: var(--text-3); }
+.wb-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.wb-flag-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 7px; }
+.wb-flag { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 7px; background: #202026; font-size: 11px; color: var(--text-2); }
+.wb-flag.off { opacity: .55; }
+.wb-flag input { accent-color: #6f6f9c; }
+.wb-flag span { flex: 1; }
+.wb-flag em { font-style: normal; font-size: 10px; color: var(--ok); }
+.wb-flag.off em { color: var(--text-3); }
+.wb-foot-note { flex: 1; margin-right: 12px; font-size: 10px; line-height: 1.5; color: var(--text-3); }
+
+/* 顶栏工作台下拉 */
+.wb-menu-wrap { position: relative; }
+.wb-menu-trigger { border: 1px solid #3a3a48; background: #23232b; }
+.wb-menu-trigger:hover { border-color: #55555f; }
+.wb-menu { position: absolute; top: 38px; right: 0; z-index: 90; width: 230px; padding: 7px; border: 1px solid #3a3a44; border-radius: 9px; background: #1e1e24; box-shadow: var(--shadow-lg); }
+.wb-menu-head { display: flex; flex-direction: column; gap: 3px; padding: 6px 9px 9px; font-size: 11px; color: var(--text); font-weight: 600; }
+.wb-menu-head em { font-style: normal; font-size: 10px; font-weight: 400; color: var(--text-3); }
+.wb-menu button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px 9px; border-radius: 6px; color: var(--text-2); font-size: 11.5px; text-align: left; }
+.wb-menu button:hover { background: #2b2b34; color: var(--text); }
+.wb-menu-sep { display: block; height: 1px; margin: 5px 4px; background: var(--border); }

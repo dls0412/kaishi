@@ -1,0 +1,245 @@
+/* canvasTools 局部样式：类名统一 ct- 前缀，颜色沿用全局深色变量 */
+
+.ct-toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 88px;
+  transform: translateX(-50%);
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: calc(100vw - 32px);
+  padding: 8px 10px;
+  background: var(--surface-2, #1e1e23);
+  border: 1px solid var(--border, #2c2c33);
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .55);
+  color: var(--text, #e9e9ee);
+  font-size: 13px;
+}
+.ct-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.ct-tool-btn svg { width: 14px; height: 14px; }
+.ct-divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 2px;
+  background: var(--border, #2c2c33);
+}
+.ct-count {
+  padding: 0 4px;
+  color: var(--text-3, #6f6f7b);
+  font-size: 12px;
+}
+.ct-save-pop {
+  position: fixed;
+  left: 50%;
+  bottom: 142px;
+  transform: translateX(-50%);
+  z-index: 6001;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  background: var(--surface, #16161a);
+  border: 1px solid var(--border, #2c2c33);
+  border-radius: 10px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .55);
+}
+.ct-input { width: 190px; }
+
+/* 宫格切分弹窗 */
+.ct-mask { z-index: 6500; }
+.ct-dialog { max-width: 460px; color: var(--text, #e9e9ee); }
+.ct-split-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 340px;
+}
+.ct-section-title {
+  margin: 0 0 8px;
+  color: var(--text-2, #a4a4af);
+  font-size: 12px;
+}
+.ct-presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.ct-preset.is-on {
+  border-color: var(--ok, #63c99a);
+  color: var(--ok, #63c99a);
+}
+.ct-cell-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 34px);
+  gap: 5px;
+}
+.ct-cell {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  background: var(--surface-2, #1e1e23);
+  border: 1px solid var(--border, #2c2c33);
+  border-radius: 6px;
+  color: var(--text-3, #6f6f7b);
+}
+.ct-cell:hover { border-color: var(--text-3, #6f6f7b); }
+.ct-cell.is-on {
+  background: rgba(99, 201, 154, .18);
+  border-color: var(--ok, #63c99a);
+  color: var(--ok, #63c99a);
+}
+.ct-cell svg { width: 14px; height: 14px; }
+.ct-count-line { margin: 8px 0 0; color: var(--text-2, #a4a4af); font-size: 12px; }
+.ct-angles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ct-angle { justify-content: center; }
+.ct-note {
+  margin: 8px 0 0;
+  color: var(--text-3, #6f6f7b);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.ct-warn { color: var(--warn, #e0b25f); }
+.ct-foot { display: flex; justify-content: flex-end; gap: 8px; }
+
+/* 起始引导：只覆盖中央，且不拦截画布其它操作 */
+.ct-starter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: min(560px, 78vw);
+  pointer-events: none;
+}
+.ct-starter-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  pointer-events: none;
+}
+.ct-starter-title {
+  color: var(--text-2, #a4a4af);
+  font-size: 14px;
+  letter-spacing: .04em;
+}
+.ct-starter-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  pointer-events: none;
+}
+.ct-starter-card {
+  pointer-events: auto;
+  text-align: left;
+  padding: 16px;
+  cursor: pointer;
+  background: var(--surface, #16161a);
+  color: var(--text, #e9e9ee);
+  border: 1px solid var(--border, #2c2c33);
+  border-radius: 12px;
+}
+.ct-starter-card:hover {
+  background: var(--surface-2, #1e1e23);
+  border-color: var(--ok, #63c99a);
+}
+.ct-starter-card strong { display: block; margin-bottom: 6px; font-size: 15px; }
+.ct-starter-card span { color: var(--text-3, #6f6f7b); font-size: 12px; }
+.ct-starter-plus {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  background: var(--surface-2, #1e1e23);
+  color: var(--text, #e9e9ee);
+  border: 1px dashed var(--border, #2c2c33);
+  border-radius: 12px;
+  font-size: 13px;
+}
+.ct-starter-plus:hover { border-color: var(--ok, #63c99a); color: var(--ok, #63c99a); }
+.ct-starter-plus svg { width: 16px; height: 16px; }
+.ct-starter-links { display: flex; gap: 16px; pointer-events: none; }
+.ct-link {
+  pointer-events: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--text-3, #6f6f7b);
+  cursor: pointer;
+  font-size: 12px;
+}
+.ct-link:hover { color: var(--text, #e9e9ee); }
+
+/* 外观面板 */
+.ct-appearance {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px;
+  color: var(--text, #e9e9ee);
+  font-size: 13px;
+}
+.ct-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ct-label, .ct-field-label {
+  width: 78px;
+  flex: 0 0 78px;
+  color: var(--text-2, #a4a4af);
+  font-size: 12px;
+}
+.ct-seg { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.ct-seg-btn {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 12px;
+  background: var(--surface-2, #1e1e23);
+  color: var(--text-2, #a4a4af);
+  border: 1px solid var(--border, #2c2c33);
+}
+.ct-seg-btn:hover { color: var(--text, #e9e9ee); }
+.ct-seg-btn.is-on {
+  background: var(--surface-3, #26262c);
+  color: var(--text, #e9e9ee);
+  border-color: var(--ok, #63c99a);
+}
+.ct-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: var(--surface-2, #1e1e23);
+  border: 1px solid var(--border, #2c2c33);
+  border-radius: 10px;
+}
+.ct-field { display: flex; align-items: center; gap: 10px; }
+.ct-input-sm { width: 130px; }
+.ct-range { flex: 1; min-width: 120px; accent-color: var(--ok, #63c99a); }
+.ct-val {
+  width: 34px;
+  text-align: right;
+  color: var(--text-2, #a4a4af);
+  font-variant-numeric: tabular-nums;
+}
+.ct-err { color: var(--warn, #e0b25f); font-size: 11px; }
+.ct-actions { display: flex; gap: 8px; }
+.ct-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.ct-summary svg { width: 13px; height: 13px; flex: 0 0 13px; margin-top: 3px; }

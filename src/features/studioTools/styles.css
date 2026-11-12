@@ -1,0 +1,340 @@
+/* studioTools 深色样式：仅使用 st- 前缀，颜色全部走全局 CSS 变量并带兜底值 */
+
+/* ---- 通用 ---- */
+.st-spacer { flex: 1 1 auto; }
+.st-hint { color: var(--text-3, #7b7f8c); font-size: 11px; line-height: 1.5; }
+.st-danger { color: var(--danger, #f0736a); border-color: var(--danger, #f0736a); }
+.st-badge {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--text-2, #b9bfcc);
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+}
+.st-col-head {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text, #e8eaf0);
+  padding-bottom: 7px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid var(--border, #343844);
+}
+.st-spacer { min-width: 8px; }
+
+/* ---- 弹窗尺寸 ---- */
+.dialog.st-dialog-wide {
+  width: min(1180px, 95vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.dialog.st-dialog-narrow { width: min(460px, 92vw); }
+
+/* ---- 组件 1：模板库 ---- */
+.st-library {
+  background: var(--surface, #17181d);
+  border: 1px solid var(--border, #343844);
+  border-radius: 10px;
+  padding: 14px;
+  color: var(--text, #e8eaf0);
+}
+.st-library-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.st-toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.st-library-note {
+  margin: 6px 0 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--surface-2, #202229);
+  border-left: 3px solid var(--warn, #e0a94b);
+  color: var(--text-2, #b9bfcc);
+}
+.st-list { display: flex; flex-direction: column; gap: 8px; }
+.st-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--border, #343844);
+}
+.st-row-main { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.st-row-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.st-row-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--text-2, #b9bfcc); }
+.st-instance-line { font-size: 11px; color: var(--text-3, #7b7f8c); }
+.st-row-actions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; flex-shrink: 0; }
+.st-confirm-text { color: var(--text-2, #b9bfcc); font-size: 13px; line-height: 1.7; }
+
+.st-diff { display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow: auto; }
+.st-diff-item {
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--border, #343844);
+}
+.st-diff-title { font-size: 12px; font-weight: 600; color: var(--text, #e8eaf0); margin-bottom: 5px; }
+.st-diff-line { font-size: 12px; color: var(--text-2, #b9bfcc); line-height: 1.7; }
+
+/* ---- 组件 2：工作流编辑器 ---- */
+.st-editor .dialog-body { overflow: auto; }
+.st-editor-cols {
+  display: grid;
+  grid-template-columns: 224px minmax(240px, 1fr) 268px;
+  gap: 12px;
+  align-items: start;
+}
+.st-col {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--border, #343844);
+}
+.st-type-group { margin-bottom: 12px; }
+.st-type-group .section-title { margin-bottom: 6px; }
+.st-type-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 12px;
+  color: var(--text, #e8eaf0);
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.st-type-item:hover { border-color: var(--ok, #5ec27a); }
+.st-type-item .st-hint { margin-left: auto; }
+
+.st-steps { margin-top: 6px; padding-top: 8px; border-top: 1px dashed var(--border, #343844); }
+.st-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 11px;
+  color: var(--text-2, #b9bfcc);
+  border-bottom: 1px solid var(--border, #343844);
+}
+.st-step-tag {
+  flex-shrink: 0;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--warn, #e0a94b);
+  background: var(--surface-3, #2a2d36);
+}
+.st-step-tag--off { color: var(--danger, #f0736a); }
+
+.st-slot-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 12px; }
+.st-slot {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+  cursor: pointer;
+  font-size: 12px;
+}
+.st-slot--sel { border-color: var(--ok, #5ec27a); box-shadow: inset 0 0 0 1px var(--ok, #5ec27a); }
+.st-slot-idx {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--surface, #17181d);
+  color: var(--text-3, #7b7f8c);
+  font-size: 10px;
+}
+.st-slot-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-slot-role { flex-shrink: 0; font-size: 10px; color: var(--text-3, #7b7f8c); }
+.st-slot-ops { display: flex; gap: 3px; flex-shrink: 0; }
+.st-slot-ops .mini-btn { padding: 1px 5px; line-height: 16px; }
+.st-arrow { font-size: 10px; color: var(--text-3, #7b7f8c); text-align: center; padding: 1px 0; }
+.st-edge-list { display: flex; flex-direction: column; gap: 5px; }
+.st-edge-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: var(--text-2, #b9bfcc);
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+  border-radius: 6px;
+}
+
+.st-col .settings-field { margin-bottom: 10px; }
+.st-col .dialog-input { width: 100%; box-sizing: border-box; }
+.st-col textarea.dialog-input { resize: vertical; min-height: 64px; font-family: inherit; }
+
+.st-errors {
+  margin: 0 12px 8px;
+  padding: 9px 11px;
+  border-radius: 6px;
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--danger, #f0736a);
+}
+.st-error { font-size: 12px; color: var(--danger, #f0736a); line-height: 1.7; }
+.st-editor-foot { flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* ---- 组件 3：时间线编辑器 ---- */
+.st-timeline .dialog-body { overflow: auto; }
+.st-tl-body {
+  display: grid;
+  grid-template-columns: 190px minmax(360px, 1fr) 280px;
+  gap: 12px;
+  align-items: start;
+}
+.st-tl-left,
+.st-tl-right {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--border, #343844);
+}
+.st-tl-right { display: flex; flex-direction: column; gap: 7px; }
+.st-tl-center { min-width: 0; }
+
+.st-preset-group { margin-bottom: 12px; }
+.st-preset-group .section-title { margin-bottom: 6px; }
+.st-preset {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 12px;
+  color: var(--text, #e8eaf0);
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.st-preset:hover { border-color: var(--ok, #5ec27a); }
+.st-preset .st-hint { margin-left: auto; }
+
+.st-tl-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.st-tl-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--text-3, #7b7f8c);
+}
+.st-tl-num .dialog-input { width: 44px; padding: 2px 5px; font-size: 11px; }
+.st-tl-sep { width: 1px; height: 18px; margin: 0 3px; background: var(--border, #343844); }
+
+.st-status {
+  padding: 6px 9px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--text-2, #b9bfcc);
+  background: var(--surface-2, #202229);
+  border: 1px solid var(--border, #343844);
+  border-radius: 6px;
+}
+
+.st-tracks {
+  overflow-x: auto;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--bg, #0f1014);
+  border: 1px solid var(--border, #343844);
+}
+.st-ruler {
+  position: relative;
+  height: 20px;
+  margin-left: 62px;
+  border-bottom: 1px solid var(--border, #343844);
+}
+.st-ruler-tick {
+  position: absolute;
+  top: 2px;
+  font-size: 10px;
+  color: var(--text-3, #7b7f8c);
+  transform: translateX(-2px);
+  border-left: 1px solid var(--border, #343844);
+  padding-left: 3px;
+}
+.st-track { display: flex; align-items: stretch; margin-top: 8px; }
+.st-track-label {
+  flex: 0 0 62px;
+  font-size: 11px;
+  color: var(--text-3, #7b7f8c);
+  line-height: 46px;
+}
+.st-track-lane {
+  position: relative;
+  height: 46px;
+  background: var(--surface-2, #202229);
+  border: 1px dashed var(--border, #343844);
+  border-radius: 6px;
+}
+.st-clip {
+  position: absolute;
+  top: 4px;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 3px 6px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--border, #343844);
+  cursor: pointer;
+}
+.st-clip:hover { border-color: var(--text-3, #7b7f8c); }
+.st-clip--sel {
+  border-color: var(--ok, #5ec27a);
+  box-shadow: inset 0 0 0 1px var(--ok, #5ec27a);
+  background: color-mix(in srgb, var(--ok, #5ec27a) 14%, var(--surface-3, #2a2d36));
+}
+.st-clip-label { font-size: 11px; color: var(--text, #e8eaf0); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.st-clip-meta { font-size: 10px; color: var(--text-3, #7b7f8c); }
+
+.st-ai { margin-top: 6px; padding-top: 8px; border-top: 1px dashed var(--border, #343844); }
+.st-ai textarea.dialog-input { width: 100%; box-sizing: border-box; resize: vertical; font-family: inherit; }
+.st-ai-preview {
+  margin-top: 8px;
+  padding: 9px;
+  border-radius: 6px;
+  background: var(--surface-3, #2a2d36);
+  border: 1px solid var(--warn, #e0a94b);
+}
+.st-ai-line { font-size: 11px; color: var(--text-2, #b9bfcc); line-height: 1.8; }
+.st-ai-actions { display: flex; justify-content: flex-end; gap: 6px; margin-top: 8px; }
+
+@media (max-width: 1080px) {
+  .st-editor-cols { grid-template-columns: 200px 1fr; }
+  .st-tl-body { grid-template-columns: 170px 1fr; }
+  .st-editor-cols > .st-col:last-child,
+  .st-tl-body > .st-tl-right { grid-column: 1 / -1; }
+}

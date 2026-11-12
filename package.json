@@ -1,0 +1,74 @@
+{
+  "name": "kaishi",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "e2e": "node e2e/kaishi.mjs",
+    "start": "node server/start.mjs",
+    "mcp": "node server/mcp.mjs",
+    "e2e:kaishi": "node e2e/kaishi.mjs",
+    "e2e:canvas": "node e2e/canvas-regression.mjs",
+    "e2e:params": "node e2e/parameter-matrix.mjs",
+    "e2e:recovery": "node e2e/generation-recovery.mjs",
+    "e2e:assistant": "node e2e/assistant-context.mjs",
+    "desktop:pack": "npm run build && node desktop/prepare.cjs && electron-builder --win --dir"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^45.3.0",
+    "electron-builder": "^26.18.0",
+    "playwright-core": "^1.49.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  },
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "cn.kaishi.canvas",
+    "productName": "开视",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/main.cjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist",
+        "to": "kaishi/dist"
+      },
+      {
+        "from": "server",
+        "to": "kaishi/server"
+      },
+      {
+        "from": "desktop/runtime/node.exe",
+        "to": "kaishi/node.exe"
+      },
+      {
+        "from": "public/kaishi.ico",
+        "to": "kaishi/kaishi.ico"
+      }
+    ],
+    "win": {
+      "icon": "public/kaishi.ico",
+      "target": [
+        "dir"
+      ],
+      "signExecutable": false
+    }
+  }
+}
